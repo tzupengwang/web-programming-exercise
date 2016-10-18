@@ -1,0 +1,11 @@
+{
+  "name": "hw3",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "winston": "^2.2.0"
+  }
+}
