@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import classNames from 'classnames';
+import TodoItem from './todoItem';
+import CountDisplay from './countDisplay';
 
 const { Component } = React;
 
@@ -12,13 +12,9 @@ class TodoApp extends Component {
       todoList: [],
       inputField: '',
     };
-    this.appendCard = this.appendCard.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.modifyCounter = this.modifyCounter.bind(this);
   }
 
-  appendCard(content, resetInput) {
+  appendCard = (content, resetInput) => {
     if (typeof content !== 'string' || content === '') return;
     const newItem = {
       content,
@@ -29,11 +25,10 @@ class TodoApp extends Component {
       state.todoCount += 1;
       if (resetInput === true) state.inputField = '';
       return state;
-    }, () => {
     });
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     // handle 'enter' key for submission
     const charCode = e.charCode;
     const inputDOM = e.target;
@@ -49,7 +44,7 @@ class TodoApp extends Component {
     }
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     const newValue = e.target.value;
     this.setState((state) => {
       state.inputField = newValue;
@@ -57,14 +52,14 @@ class TodoApp extends Component {
     });
   }
 
-  modifyCounter(offset) {
+  modifyCounter = (offset) => {
     this.setState((state) => {
       state.todoCount += offset;
       return state;
     });
   }
 
-  removeItem(index) {
+  removeItem = (index) => {
     this.setState((state) => {
       if (state.todoList[index].completed === false) {
         state.todoCount -= 1;
@@ -74,7 +69,7 @@ class TodoApp extends Component {
     });
   }
 
-  markComplete(index) {
+  markComplete = (index) => {
     this.setState((state) => {
       const item = state.todoList[index];
       if (!item.completed) {
@@ -85,7 +80,7 @@ class TodoApp extends Component {
     });
   }
 
-  markUndone(index) {
+  markUndone = (index) => {
     this.setState((state) => {
       const item = state.todoList[index];
       if (item.completed) {
@@ -129,25 +124,4 @@ class TodoApp extends Component {
   }
 }
 
-class TodoItem extends Component {
-  render() {
-    const { content, completed, removeSelf, markComplete, markUndone } = this.props;
-    const cardClass = classNames('mcol', 'card', { completed });
-    return (
-      <div className={cardClass}>
-        <div className="content">{content}</div>
-        <div className="option-wrap">
-        <div className="check" onClick={markComplete}>Mark as completed</div>
-        <div className="uncheck" onClick={markUndone}>Mark as uncompleted</div>
-        <div className="remove" onClick={removeSelf}>Remove</div></div>
-      </div>
-    );
-  }
-}
-
-const CountDisplay = ({ todoCount }) => (<div id="counter">{todoCount} todo</div>);
-
-ReactDOM.render(
-  <TodoApp />,
-  document.getElementById('react-app-root')
-);
+export default TodoApp;

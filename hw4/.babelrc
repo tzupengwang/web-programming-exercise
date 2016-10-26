@@ -1,6 +1,6 @@
 {
-  "presets": ["latest", "react"],
+  "presets": ["es2015", "stage-0", "react"],
   "plugins": [
-    "transform-object-rest-spread"
+    "react-hot-loader/babel"
   ]
 }
