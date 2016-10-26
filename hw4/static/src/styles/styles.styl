@@ -1,0 +1,168 @@
+* {
+  margin: 0
+  font-weight: 300
+}
+
+html {
+  font-size: 30px
+  font-family: Roboto
+}
+
+body {
+  background-color: #0e3041
+}
+
+input[type="text"] {
+  display: block
+  background-color: #f3f3f3
+  margin: 0
+  width: 30vw
+  font-size: 1rem
+  appearance: none
+  box-sizing: border-box
+  border: none
+  padding: .6rem 0.7rem
+  margin-bottom: 1px
+  &:focus {
+    outline: none
+  }
+}
+::-webkit-input-placeholder {
+  font-style: italic
+  font-weight: 100
+  color: #cfcfcf
+}
+
+.card {
+  display: flex
+  flex-direction: row
+  background-color: #f3f3f3
+  margin: 0
+  font-size: 1rem
+  appearance: none
+  box-sizing: border-box
+  border: none
+  padding: .45rem 0.7rem
+  margin-bottom: 1px
+  border-radius: 4px
+  transition: margin-top .1s ease-in 0s
+  will-change: margin-top
+  & .option-wrap {
+    display: flex
+    color: #0e3041
+    & .check, & .uncheck{
+      font-size: 0.5rem
+      margin-bottom: -0.5rem
+      padding-right: 5px
+      border-right: 1px solid #000
+      cursor: pointer
+      &:hover {
+        text-decoration: underline
+      }
+    }
+    & .uncheck {
+      display: none
+    }
+    & .remove {
+      font-size: 0.5rem
+      margin-bottom: -0.5rem
+      padding-left: 5px
+      cursor: pointer
+      &:hover {
+        text-decoration: underline
+      }
+    }
+  }
+  &.completed {
+    & .content {
+      text-decoration: line-through
+      color: #c4c4c4
+    }
+    & .check {
+      display: none
+    }
+    & .uncheck {
+      display: block
+    }
+  }
+  &:hover {
+    background-color: #dcdcdc
+  }
+}
+
+#footer {
+  display: flex
+  flex-direction: row
+  background-color: #f3f3f3
+  color: #cfcfcf
+  margin: 0
+  font-size: .6rem
+  appearance: none
+  box-sizing: border-box
+  border: none
+  padding: .3rem 0.5rem
+  margin-bottom: 50px
+}
+
+.title {
+  height: 4.5rem
+  font-size: 3rem
+  font-weight: 100
+  padding-top: 1rem
+  color: white
+  filter: drop-shadow(1px 2px 2px rgba(0,0,0,.5))
+}
+
+#todo-list {
+  display: block
+  width: 80vw
+  max-width: 580px
+  margin: 0 auto
+  .mcol {
+    display: flex
+    width: 100%
+    margin: 0 auto
+    align-items: center
+    justify-content: center
+    input[type="text"] {
+      width: 100%
+    }
+    &.card {
+      margin-bottom: 1px
+      justify-content: space-between
+      &.new {
+        margin-top: -65px
+      }
+    }
+    &:last-child {
+      margin-bottom: 15px
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+                  0 8px 0 -3px #f6f6f6,
+                  0 9px 1px -3px rgba(0, 0, 0, 0.2),
+                  0 16px 0 -6px #f6f6f6,
+                  0 17px 2px -6px rgba(0, 0, 0, 0.2)
+    }
+  }
+  @media screen and (max-width: 450px) {
+    width: 360px
+    & .mcol {
+      width: 95%
+    }
+  }
+  @media screen and (max-width: 360px) {
+    width: 100%
+    & .mcol {
+      width: 95%
+    }
+  }
+}
+footer {
+  font-size: 0.5rem
+  display: flex
+  height: 1.5rem
+  align-items: center
+  justify-content: center
+  color: #40738c
+  filter: drop-shadow(1px 2px 2px rgba(0,0,0,.5))
+  margin-bottom: 15px
+}
