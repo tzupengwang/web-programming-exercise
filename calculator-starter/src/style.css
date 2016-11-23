@@ -1,0 +1,91 @@
+button {
+  border: none;
+}
+button:focus {
+  -webkit-apperance: none;
+  outline: none;
+}
+
+/* layout */
+.calc-container {
+  width: 240px;
+  height: 444px;
+  margin: auto;
+  background-color: black;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 26px;
+  font-weight: 100;
+}
+
+.calc-output {
+  height: 139px;
+  position: relative;
+}
+
+.calc-display {
+  position: absolute;
+  bottom: 5px;
+  right: 15px;
+  font-size: 50px;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+
+.calc-row {
+  display: flex;
+  height: 61px;
+}
+
+.calc-btn {
+  cursor: pointer;
+  display: flex;
+  aligh-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 100%;
+  line-height: 35px;
+  box-sizing: border-box;
+  border: none;
+  border-left: 1px solid #a08c88;
+  border-top: 1px solid #a08c88;
+  background-color: #c8c9cb;
+}
+
+.calc-btn:first-child {
+  border-left: none;
+}
+
+.bigger-btn {
+  width: 50%;
+}
+
+.calc-number {
+  background-color: #d2d3d5;
+}
+
+.calc-operator {
+  color: white;
+  background-color: #f58c00;
+}
+
+.calc-operator:focus {
+  border: 2px solid black;
+}
+
+.calc-operator:focus + .calc-operator{
+  border-top: none;
+}
+/* clearfix
+ * http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best
+ */
+.clearfix:before,
+.clearfix:after {
+  content:"";
+  display:table;
+}
+.clearfix:after {
+  clear:both;
+}
+.clearfix {
+  zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
